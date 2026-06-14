@@ -5,6 +5,8 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
+
+
 <pre>
 <strong>Input:</strong> strs = [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
 <strong>Output:</strong> &quot;fl&quot;
