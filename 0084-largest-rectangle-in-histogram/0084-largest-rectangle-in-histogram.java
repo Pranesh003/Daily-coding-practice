@@ -1,54 +1,22 @@
-import java.util.*;
-
 class Solution {
-    public int largestRectangleArea(int[] height) {
+    public int largestRectangleArea(int[] heights) {
+        Stack<Integer> stack= new Stack<>();
+        int maxArea=0;
+        int n =heights.length;
 
-        int n = height.length;
+        for(int i=0;i<=n;i++){
+            while(!stack.isEmpty() && (i==n || heights[stack.peek()]>=heights[i])){
+                int height=heights[stack.pop()];
+                int width;
+                if(stack.isEmpty())
+                width=i;
+                else
+                width=i-stack.peek()-1;
 
-        int[] left = new int[n];
-        int[] right = new int[n];
-
-        Stack<Integer> st = new Stack<>();
-
-        
-        for(int i = 0; i < n; i++) {
-
-            while(!st.isEmpty() &&
-                  height[st.peek()] >= height[i]) {
-                st.pop();
+                maxArea=Math.max(maxArea,width*height);;
             }
-
-            left[i] = st.isEmpty() ? -1 : st.peek();
-
-            st.push(i);
+            stack.push(i);
         }
-
-        st.clear();
-
-   
-        for(int i = n - 1; i >= 0; i--) {
-
-            while(!st.isEmpty() &&
-                  height[st.peek()] >= height[i]) {
-                st.pop();
-            }
-
-            right[i] = st.isEmpty() ? n : st.peek();
-
-            st.push(i);
-        }
-
-        int maxArea = 0;
-
-        for(int i = 0; i < n; i++) {
-
-            int width = right[i] - left[i] - 1;
-
-            int area = height[i] * width;
-
-            maxArea = Math.max(maxArea, area);
-        }
-
         return maxArea;
     }
 }
