@@ -13,8 +13,8 @@ class Solution {
         int []result=new int[set2.size()];
         int i=0;
         for(int num:set2){
-            result[i]=num;
-            i++;
+            result[i++]=num;
+            
         }
 
         return result;
