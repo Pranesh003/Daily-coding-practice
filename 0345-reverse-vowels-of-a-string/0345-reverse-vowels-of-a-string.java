@@ -17,10 +17,10 @@ class Solution {
 
             left++;
             right--;
-        }
-        String ans= new String(c);
-        return ans;
 
+        }
+        String ans = new String(c);
+        return ans;
     }
 
     private boolean isVowel(char c){
