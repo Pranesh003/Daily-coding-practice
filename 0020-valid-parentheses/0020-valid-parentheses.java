@@ -3,7 +3,7 @@ class Solution {
         Stack<Character>stack=new Stack<>();
 
         for(char c:s.toCharArray()){
-            if(c=='('||c=='['||c=='{')
+            if(c=='(' || c=='[' || c=='{')
             stack.push(c);
 
             else{
@@ -12,17 +12,18 @@ class Solution {
 
                 char top=stack.peek();
 
-                if(c==')'&&top!='(')
+                if(c==')' && top!='(')
                 return false;
 
-                if(c==']'&&top!='[')
+                if(c==']' && top!='[')
                 return false;
 
-                if(c=='}'&&top!='{')
+                if(c=='}' && top!='{')
                 return false;
 
                 stack.pop();
             }
+
         }
         return stack.isEmpty();
     }
