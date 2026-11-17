@@ -13,17 +13,20 @@ class Node {
 class Solution {
     int findCeil(Node root, int x) {
         // code here
-        if(root==null)
-        return -1;
-        
-        if(root.data==x)
-        return root.data;
-        
-        if(root.data<x)
-        return findCeil(root.right,x);
-        
-        int ceil=findCeil(root.left,x);
-        
-        return (ceil >=x) ? ceil:root.data;
+        int ceil=-1;
+        while(root!=null){
+            if(root.data==x)
+            return root.data;
+            
+            if(x>root.data){
+                root=root.right;
+            }
+            else{
+                ceil=root.data;
+                root=root.left;
+            }
+            
+        }
+        return ceil;
     }
 }
