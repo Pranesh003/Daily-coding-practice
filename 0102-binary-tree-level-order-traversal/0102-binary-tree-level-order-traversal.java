@@ -24,7 +24,7 @@ class Solution {
         queue.offer(root);
 
         while(!queue.isEmpty()){
-            int levelSize = queue.size();
+            int levelSize=queue.size();
             List<Integer>currLevel=new ArrayList<>();
 
             for(int i=0;i<levelSize;i++){
@@ -37,10 +37,10 @@ class Solution {
                 if(curr.right!=null)
                 queue.offer(curr.right);
 
+
             }
             result.add(currLevel);
         }
-
         return result;
     }
 }
